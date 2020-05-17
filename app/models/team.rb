@@ -3,10 +3,9 @@ class Team
   @@all=[]
    attr_accessor :name,:motto
 
-   def initialize(params)
-     binding.pry
-     @name= params[:name]
-     @motto = params[:motto]
+   def initialize(arg:)
+     @name= arg[:name]
+     @motto = arg[:motto]
      @@all << self
    end
 

@@ -4,9 +4,9 @@ class Superhero
   attr_accessor :name,:power,:bio
   @@all=[]
 
-  def initialize(params)
-    @name,@power,@bio = params[:name],params[:power],params[:bio]
-    @@all <self
+  def initialize(arg:)
+    @name,@power,@bio = arg[:name],arg[:power],arg[:bio]
+    @@all << self
   end
 
 
