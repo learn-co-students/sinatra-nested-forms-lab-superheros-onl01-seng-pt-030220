@@ -2,8 +2,8 @@
 source "https://rubygems.org"
 
 # gem "rails"
-
-gem 'sinatra', '1.4.6'
+gem 'sinatra', '~> 1.4', '>= 1.4.8'
+#gem 'sinatra', '1.4.6'
 gem 'rake', '12.3.3'
 gem 'thin', '1.6.4'
 gem 'shotgun', '0.9'
