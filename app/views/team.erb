@@ -1,3 +1,9 @@
 
-
-
+<h1>Flatiron</h1>
+<h1>Team Motto: <%=@team.motto%></h1>
+<h1>Team Name: <%=@team.name%></h1>
+<h1><%@heros.each do |i|%></h1>
+    <h2>Hero Name: <%=i.name%></h2>
+     Hero Power: <%=i.power%><br>
+     Hero Biography: <%=i.bio%>
+    <p> <%end%></p>
