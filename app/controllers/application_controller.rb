@@ -1,28 +1,23 @@
 require 'sinatra/base'
 
-require_relative '../../config/environment'
-
 class App < Sinatra::Base
 
-  set :views, Proc.new { File.join(root, "../views/") }
-  
-  get '/' do
-    erb :super_hero
-  end
+    set :views, Proc.new { File.join(root, "../views/") }
 
-  post '/teams' do
-    @team_name = params[:team][:name]
-    @team_motto = params[:team][:motto]
-    @hero_name = []
-    @hero_power = []
-    @hero_bio = []
-    @team_members = params[:team][:members]
-    @team_members.each do |hero|
-      @hero_name << hero[:name]
-      @hero_power << hero[:power]
-      @hero_bio << hero[:bio]
-    end
+    get '/' do 
+        erb :super_hero
+    end 
 
-    erb :team
-  end
+    post '/teams' do 
+        @team = Team.new(params[:team])
+
+        params[:team][:heros].each do |hero_data|
+            hero = Hero.new(hero_data)
+        end 
+
+        @heroes = Hero.all 
+
+        erb :team
+    end 
+
 end
